@@ -5,7 +5,10 @@
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
 
 def my_round(number, ndigits):
-    pass
+    number = number * (10 ** ndigits) + 0.41
+    number = number // 1
+    return number / (10 ** ndigits)
+
 
 
 print(my_round(2.1234567, 5))
@@ -18,11 +21,15 @@ print(my_round(2.9999967, 5))
 # Решение реализовать в виде функции.
 # Билет считается счастливым, если сумма его первых и последних цифр равны.
 # !!!P.S.: функция не должна НИЧЕГО print'ить
-
 def lucky_ticket(ticket_number):
-    pass
-
-
+    ticket_number = str(ticket_number)
+    x = list(map(int, ticket_number))
+    if sum(x[:len(x)//2])==sum(x[len(x)//2:]):
+        res = ('lucky')
+    else:
+        res = ('unlucky')
+    return res
 print(lucky_ticket(123006))
 print(lucky_ticket(12321))
 print(lucky_ticket(436751))
+
