@@ -13,3 +13,30 @@
 # Для решения данной задачи используйте алгоритмы из задания easy,
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
+import os
+import hw05_easy
+selection ='x'
+while selection != '5':
+    print('1) Перейти в папку')
+    print('2) Посмотреть текущую папку')
+    print('3) Удалить папку')
+    print('4) Создать папку')
+    print('5) Выход')
+    selection = input('Выберите действие: ' )
+    print(selection)
+    if selection == '1':
+        path = input ('Введите полный путь папки: ')
+        hw05_easy.change_dir(path)
+    elif selection == '2':
+        path = os.getcwd()
+        hw05_easy.view_directories(path)
+    elif selection == '3':
+        path = input('Введите полный путь папки: ')
+        hw05_easy.remove_dir(path)
+    elif selection == '4':
+        path = input('Введите полный путь папки: ')
+        hw05_easy.make_dir(path)
+    elif selection == '5':
+        pass
+    else:
+        print('Такого пункта меню нет')
